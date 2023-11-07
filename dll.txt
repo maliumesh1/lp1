@@ -1,0 +1,101 @@
+Steps to Create DLL File
+Create Class Library File
+
+Step – 1 Open Visual Studio-> Create New Project -> Select Class Library- > give Project Name -> Eg. Calculator3
+
+Step-2. Give class name as Calci-> Class file Contains code -> Defined function as below in class
+namespace Calculator3
+{
+public class Calci
+{
+public int add(int a, int b) {
+return a + b;
+}
+public int sub(int a, int b)
+{
+return a - b;
+}
+public int mult(int a, int b)
+{
+return a * b;
+}
+public int div(int a, int b)
+{
+return a / b;
+}
+}
+}
+
+Step-3 Build a current project->Calculator3 DLL File Will be Created at Path:
+C:\Users\Admin\source\repos\Calculator3\Calculator3\bin\Debug\net6.0
+
+Step-4
+Open New Project -> Select Windows Form
+Step-5 . Design Front Form for Calculator as below
+
+Step-6. Click on ADD button -> Coding part will open -> at right side -> Right Click on Dependencies -> Add Project Reference-> Brows DLL File-(Path is C:\Users\Admin\source\repos\Calculator3\Calculator3\bin\Debug\net6.0 )
+
+Step-6 Add Namespace at first line of code
+Using Calculator3;
+Create object of Calci class in partial class file as below
+Calci obj=new Calci();
+The write code for addition on click event of button ADD,SUB,MULT,DIV..resepectively.
+
+Step-7 . Now Run the current project-output
+
+
+
+//winapp
+
+using calculator5;
+namespace WinFormsApp4
+{
+    public partial class Form1 : Form
+    {
+        calci obj = new calci();
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(textBox1.Text);
+            int b = Convert.ToInt32(textBox2.Text);
+            int r = obj.add(a, b);
+
+            textBox3.Text = r.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(textBox1.Text);
+            int b = Convert.ToInt32(textBox2.Text);
+            int r = obj.sub(a, b);
+
+            textBox3.Text = r.ToString();
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(textBox1.Text);
+            int b = Convert.ToInt32(textBox2.Text);
+            int r = obj.mul(a, b);
+
+            textBox3.Text = r.ToString();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(textBox1.Text);
+            int b = Convert.ToInt32(textBox2.Text);
+            int r = obj.div(a, b);
+
+            textBox3.Text = r.ToString();
+        }
+
+    }
+}
